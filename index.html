@@ -14,7 +14,7 @@
         .btn-discord { background: #5865f2; color: white; }
         .btn-discord:hover { background: #4752c4; }
         
-        .btn-script { background: #2ecc71; color: black; }
+        .btn-script { background: #ff6600; color: white; } /* Linkvertise turuncusu yaptık */
         .btn-script:disabled { background: #333; color: #666; cursor: not-allowed; }
         
         .status-icon { font-size: 20px; margin-bottom: 5px; }
@@ -33,7 +33,7 @@
         <div class="step">
             <div class="status-icon">2️⃣</div>
             <p>Reklamı geç ve scriptleri aç.</p>
-            <button id="scriptBtn" class="btn btn-script" disabled onclick="goLoot()">SCRIPTLERE GİT</button>
+            <button id="scriptBtn" class="btn btn-script" disabled onclick="goLinkvertise()">LINKVERTISE'A GİT</button>
         </div>
         
         <p style="font-size: 10px; color: #555;">Sunucuya katılmadan scriptler çalışmayacaktır.</p>
@@ -41,15 +41,25 @@
 
     <script>
         function enableNext() {
-            // Kullanıcı Discord butonuna bastığında 2. butonu açar
+            // Sunucuya katıl butonuna basınca 2 saniye sonra reklam butonu aktif olur
             setTimeout(() => {
                 document.getElementById('scriptBtn').disabled = false;
+                alert("Şimdi 2. adıma geçebilirsin!");
             }, 2000);
         }
 
-        function goLoot() {
-            // Buraya LootLabs reklamlı linkini koy
-            window.location.href = 'https://loot-link.com/s?SENIN_LOOTLABS_LINKIN';
+        function goLinkvertise() {
+            // Senin verdiğin Linkvertise linki
+            const linkvertiseURL = 'https://link-target.net/2646605/cUFm4RhMgBkH';
+            
+            // Reklamı yeni sekmede açar
+            window.open(linkvertiseURL, '_blank');
+
+            // Reklama gittikten sonra kullanıcıya Discord'a dönmesi gerektiğini hatırlatır
+            setTimeout(() => {
+                alert("Reklamı geçtiysen Discord'a dön ve /dogrula komutunu kullan!");
+                window.location.href = "discord://"; // Discord uygulamasını açar
+            }, 5000);
         }
     </script>
 </body>
